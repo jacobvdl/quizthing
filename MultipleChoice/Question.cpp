@@ -49,17 +49,23 @@ void Question::PromptQuestion()
 		if (answers[chosenAnswer].IsCorrect()) {
 			std::cout << "\nYou chose the correct answer!\n\n";
 			correct = true;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
+			system("pause");
 		}
 		else {
 			
 			std::cout << "\nYou chose the incorrect answer.\n\n";
-
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
+			system("pause");
 		}
 	}
 	else {
-		std::cout << "\nIncorrect input. Try again!\n";
 		PromptQuestion();
 	}
+
+	
 }
 
 void Question::setQuestion(std::string q)
